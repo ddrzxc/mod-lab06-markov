@@ -22,6 +22,7 @@ class TextGen {
     std::string createText(int words);
     void loadStatetab(std::map<prefix, std::vector<std::string> > stab);
     std::string getSuffix(prefix pref);
+    std::map<prefix, std::vector<std::string> > getStatetab();
 };
 
 #endif  // INCLUDE_TEXTGEN_H_

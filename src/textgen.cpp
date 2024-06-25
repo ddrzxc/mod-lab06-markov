@@ -53,3 +53,7 @@ std::string TextGen::getSuffix(prefix pref) {
     int index = dist(gen);
     return suf[index];
 }
+
+std::map<prefix, std::vector<std::string> > TextGen::getStatetab() {
+    return statetab;
+}
