@@ -20,6 +20,8 @@ class TextGen {
     explicit TextGen(int npref);
     void loadInput(std::istream &istream);
     std::string createText(int words);
+    void loadStatetab(std::map<prefix, std::vector<std::string> > stab);
+    std::string getSuffix(prefix pref);
 };
 
 #endif  // INCLUDE_TEXTGEN_H_

@@ -29,18 +29,27 @@ std::string TextGen::createText(int words) {
         pref.pop_front();
     }
     pref = statetab.begin()->first;
-    std::random_device rd;
-    std::mt19937 gen(rd());
     for (int i = 0; i < words - npref; i++) {
         if (statetab[pref].empty())
             break;
-        auto suf = statetab[pref];
-        std::uniform_int_distribution<> dist(0, suf.size()-1);
-        int index = dist(gen);
-        result += suf[index] + " ";
+        std::string suf = getSuffix(pref);
+        result += suf + " ";
         pref.pop_front();
-        pref.push_back(suf[index]);
+        pref.push_back(suf);
     }
     result.erase(result.size()-1);
     return result;
+}
+
+void TextGen::loadStatetab(std::map<prefix,std::vector<std::string> > stab) {
+    this->statetab = stab;
+}
+
+std::string TextGen::getSuffix(prefix pref) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    auto suf = statetab[pref];
+    std::uniform_int_distribution<> dist(0, suf.size()-1);
+    int index = dist(gen);
+    return suf[index];
 }
