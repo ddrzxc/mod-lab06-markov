@@ -51,6 +51,6 @@ TEST(textgen, test5) {
         if (res[i] == ' ')
             words++;
     }
-    words++
+    words++;
     EXPECT_EQ(20, words);
 }
