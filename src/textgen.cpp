@@ -41,7 +41,7 @@ std::string TextGen::createText(int words) {
     return result;
 }
 
-void TextGen::loadStatetab(std::map<prefix,std::vector<std::string> > stab) {
+void TextGen::loadStatetab(std::map<prefix, std::vector<std::string> > stab) {
     this->statetab = stab;
 }
 
