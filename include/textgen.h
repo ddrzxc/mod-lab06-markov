@@ -1,4 +1,6 @@
 // Copyright 2024 Darya Rybakova
+#ifndef INCLUDE_TEXTGEN_H_
+#define INCLUDE_TEXTGEN_H_
 
 #include <iostream>
 #include <deque>
@@ -11,11 +13,13 @@
 typedef std::deque<std::string> prefix; // очередь префиксов
 
 class TextGen {
-    private:
+ private:
     std::map<prefix, std::vector<std::string> > statetab; // префикс-суффиксы
     int npref = 0;
-    public:
-    TextGen(int npref);
+ public:
+    explicit TextGen(int npref);
     void loadInput(std::istream &istream);
     std::string createText(int words);
 };
+
+#endif  // INCLUDE_TEXTGEN_H_
